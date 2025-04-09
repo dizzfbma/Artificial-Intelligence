@@ -1,0 +1,27 @@
+1. Setup
+Obtain the Code: Download both tsp_ga.py (core logic) and tsp_experiments.py (experiment runner).
+
+Install Dependencies:
+pip install numpy matplotlib joblib
+Prepare Data: Place TSPLIB files (e.g., berlin52.tsp) in the same folder for easy access.
+
+2. Usage
+Single Run:
+python tsp_ga.py berlin52.tsp --pop_size 100 --generations 500 \
+  --crossover_rate 0.8 --mutation_rate 0.2
+Prints best solution, length, and time; optionally plots fitness evolution.
+
+Grid Search Experiments:
+python tsp_experiments.py --datasets berlin52.tsp kroA100.tsp \
+  --pop_sizes 50 100 200 --crossover_rates 0.6 0.8 1.0 \
+  --mutation_rates 0.1 0.2 0.3 --generations 500 --num_runs 10
+Creates CSV files (e.g., berlin52_results.csv) and optionally plots performance trends.
+
+3. Key Parameters
+Parameter	Meaning	Example
+pop_size	Population size	50, 100
+generations	Max iterations of GA	200, 500
+crossover_rate	Probability of crossover	0.6, 0.8
+mutation_rate	Probability of mutation	0.1, 0.2
+num_runs	Independent runs per configuration	5, 10
+Tip: Increase pop_size or mutation_rate if solutions converge too quickly.
